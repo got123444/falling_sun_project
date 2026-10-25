@@ -14,9 +14,9 @@ export const Route = createFileRoute("/map")({
   head: () => ({
     meta: [
       { title: "Map & routes — MEDIVAC Command (demo)" },
-      { name: "description", content: "Fictional training-area map with patients, facilities, hazards and hazard-aware route estimates." },
+      { name: "description", content: "Delhi NCR reference map with simulated patients, facilities, hazards and route estimates." },
       { property: "og:title", content: "Map & routes — MEDIVAC Command" },
-      { property: "og:description", content: "Hazard-aware route estimation over a small fictional road graph." },
+      { property: "og:description", content: "Approximate Delhi landmarks with simulated hazard-aware route estimates." },
     ],
   }),
   component: MapPage,
@@ -43,7 +43,7 @@ function MapPage() {
 
   return (
     <div>
-      <PageHeader title="Map & routes" sub="Click a patient dot to see the estimated route. Routes avoid blocked roads and penalise slow ones." actions={<SimLabel />} />
+      <PageHeader title="Delhi map & routes" sub="Delhi NCR landmarks with simulated patients and hazard-aware routes." actions={<SimLabel />} />
       <div className="grid gap-4 xl:grid-cols-[1fr_320px]">
         <div className="panel p-2">
           <SchematicMap world={world} selected={sel} onSelect={setSel} route={info?.route} alt={info?.alt} />
@@ -93,7 +93,7 @@ function MapPage() {
               ))}
             </ul>
           </div>
-          <p className="text-[11px] text-muted-foreground">Simple shortest-path estimate on a fictional graph. Not real-world or traffic-aware routing.</p>
+          <p className="text-[11px] text-muted-foreground">Approximate reference map. Patient locations, road links, facilities, distances, and traffic are simulated; not for real-world navigation.</p>
         </div>
       </div>
     </div>
