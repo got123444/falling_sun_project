@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RequestIdRouteImport } from './routes/request.$id'
+import { Route as RequestDetailedRouteImport } from './routes/request.detailed'
+import { Route as RequestQuickRouteImport } from './routes/request.quick'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RequestIdRoute = RequestIdRouteImport.update({
+  id: '/request/$id',
+  path: '/request/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestDetailedRoute = RequestDetailedRouteImport.update({
+  id: '/request/detailed',
+  path: '/request/detailed',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestQuickRoute = RequestQuickRouteImport.update({
+  id: '/request/quick',
+  path: '/request/quick',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/request/$id': typeof RequestIdRoute
+  '/request/detailed': typeof RequestDetailedRoute
+  '/request/quick': typeof RequestQuickRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/request/$id': typeof RequestIdRoute
+  '/request/detailed': typeof RequestDetailedRoute
+  '/request/quick': typeof RequestQuickRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/request/$id': typeof RequestIdRoute
+  '/request/detailed': typeof RequestDetailedRoute
+  '/request/quick': typeof RequestQuickRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/request/$id' | '/request/detailed' | '/request/quick'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/request/$id' | '/request/detailed' | '/request/quick'
+  id: '__root__' | '/' | '/request/$id' | '/request/detailed' | '/request/quick'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  RequestIdRoute: typeof RequestIdRoute
+  RequestDetailedRoute: typeof RequestDetailedRoute
+  RequestQuickRoute: typeof RequestQuickRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/request/$id': {
+      id: '/request/$id'
+      path: '/request/$id'
+      fullPath: '/request/$id'
+      preLoaderRoute: typeof RequestIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request/detailed': {
+      id: '/request/detailed'
+      path: '/request/detailed'
+      fullPath: '/request/detailed'
+      preLoaderRoute: typeof RequestDetailedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request/quick': {
+      id: '/request/quick'
+      path: '/request/quick'
+      fullPath: '/request/quick'
+      preLoaderRoute: typeof RequestQuickRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  RequestIdRoute: RequestIdRoute,
+  RequestDetailedRoute: RequestDetailedRoute,
+  RequestQuickRoute: RequestQuickRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
