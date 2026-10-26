@@ -1,4 +1,4 @@
-/** Fictional training area "Kestrel Valley". No real locations. */
+/** Training scenario set in Delhi. Real area names, simulated patients and roads. */
 import type { Edge, Facility, Hazard, MapNode, Patient, Vitals, World } from "./types";
 
 export function mulberry32(seed: number) {
@@ -15,19 +15,19 @@ export function mulberry32(seed: number) {
 export const SEED = 4242;
 
 export const NODES: MapNode[] = [
-  { id: "N1", label: "Northgate", x: 120, y: 90 },
-  { id: "N2", label: "Mill Bridge", x: 330, y: 70 },
-  { id: "N3", label: "Ridge Camp", x: 560, y: 110 },
-  { id: "N4", label: "Old Quarry", x: 820, y: 90 },
-  { id: "N5", label: "West Fork", x: 90, y: 300 },
-  { id: "N6", label: "Market Cross", x: 300, y: 280 },
-  { id: "N7", label: "Central Depot", x: 520, y: 320 },
-  { id: "N8", label: "Rail Yard", x: 760, y: 300 },
-  { id: "N9", label: "East Fields", x: 920, y: 330 },
-  { id: "N10", label: "Marsh Lane", x: 150, y: 520 },
-  { id: "N11", label: "School Hill", x: 380, y: 500 },
-  { id: "N12", label: "River Ford", x: 610, y: 540 },
-  { id: "N13", label: "Harbor Road", x: 850, y: 560 },
+  { id: "N1", label: "Rohini", x: 120, y: 90 },
+  { id: "N2", label: "Model Town", x: 330, y: 70 },
+  { id: "N3", label: "Civil Lines", x: 560, y: 110 },
+  { id: "N4", label: "Shahdara", x: 820, y: 90 },
+  { id: "N5", label: "Janakpuri", x: 90, y: 300 },
+  { id: "N6", label: "Karol Bagh", x: 300, y: 280 },
+  { id: "N7", label: "Connaught Place", x: 520, y: 320 },
+  { id: "N8", label: "Laxmi Nagar", x: 760, y: 300 },
+  { id: "N9", label: "Anand Vihar", x: 920, y: 330 },
+  { id: "N10", label: "Dwarka", x: 150, y: 520 },
+  { id: "N11", label: "Hauz Khas", x: 380, y: 500 },
+  { id: "N12", label: "Lajpat Nagar", x: 610, y: 540 },
+  { id: "N13", label: "Okhla", x: 850, y: 560 },
 ];
 
 const nodeById = new Map(NODES.map((n) => [n.id, n]));
@@ -46,19 +46,19 @@ export const EDGES: Edge[] = PAIRS.map(([a, b]) => {
 
 export function initialFacilities(): Facility[] {
   return [
-    { id: "F1", name: "Kestrel General", node: "N6", capacity: 14, occupied: 4 },
-    { id: "F2", name: "Ridge Field Hospital", node: "N3", capacity: 8, occupied: 3 },
-    { id: "F3", name: "Harbor Trauma Unit", node: "N13", capacity: 12, occupied: 2 },
-    { id: "F4", name: "Marsh Lane Clinic", node: "N10", capacity: 5, occupied: 2 },
+    { id: "F1", name: "Sir Ganga Ram Hospital", node: "N6", capacity: 14, occupied: 4 },
+    { id: "F2", name: "Aruna Asaf Ali Hospital", node: "N3", capacity: 8, occupied: 3 },
+    { id: "F3", name: "Holy Family Hospital", node: "N13", capacity: 12, occupied: 2 },
+    { id: "F4", name: "Indira Gandhi Hospital, Dwarka", node: "N10", capacity: 5, occupied: 2 },
   ];
 }
 
 export function initialHazards(): Hazard[] {
   return [
-    { id: "H1", label: "Flooded crossing", edge: ["N7", "N12"], severity: "blocked", active: true },
+    { id: "H1", label: "Waterlogging at underpass", edge: ["N7", "N12"], severity: "blocked", active: true },
     { id: "H2", label: "Debris on road", edge: ["N2", "N3"], severity: "slow", active: true },
-    { id: "H3", label: "Grass fire", edge: ["N8", "N9"], severity: "blocked", active: true },
-    { id: "H4", label: "Bridge inspection", edge: ["N5", "N6"], severity: "slow", active: false },
+    { id: "H3", label: "Yamuna bridge closure", edge: ["N8", "N9"], severity: "blocked", active: true },
+    { id: "H4", label: "Metro construction", edge: ["N5", "N6"], severity: "slow", active: false },
   ];
 }
 
@@ -106,7 +106,7 @@ export function createInitialWorld(): World {
     patients,
     facilities,
     hazards: initialHazards(),
-    log: [{ id: 1, minute: 0, kind: "system", text: "Simulation started with 22 fictional patients in Kestrel Valley training area" }],
+    log: [{ id: 1, minute: 0, kind: "system", text: "Simulation started with 22 simulated patients across Delhi" }],
     nextLogId: 2,
   };
 }
