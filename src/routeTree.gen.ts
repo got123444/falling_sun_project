@@ -10,12 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as FacilitiesRouteImport } from './routes/facilities'
-import { Route as MapRouteImport } from './routes/map'
-import { Route as ReportRouteImport } from './routes/report'
-import { Route as RequestsRouteImport } from './routes/requests'
-import { Route as TriageRouteImport } from './routes/triage'
 import { Route as RequestIdRouteImport } from './routes/request.$id'
 import { Route as RequestDetailedRouteImport } from './routes/request.detailed'
 import { Route as RequestQuickRouteImport } from './routes/request.quick'
@@ -23,36 +17,6 @@ import { Route as RequestQuickRouteImport } from './routes/request.quick'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AnalyticsRoute = AnalyticsRouteImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FacilitiesRoute = FacilitiesRouteImport.update({
-  id: '/facilities',
-  path: '/facilities',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MapRoute = MapRouteImport.update({
-  id: '/map',
-  path: '/map',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReportRoute = ReportRouteImport.update({
-  id: '/report',
-  path: '/report',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RequestsRoute = RequestsRouteImport.update({
-  id: '/requests',
-  path: '/requests',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TriageRoute = TriageRouteImport.update({
-  id: '/triage',
-  path: '/triage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RequestIdRoute = RequestIdRouteImport.update({
@@ -73,24 +37,12 @@ const RequestQuickRoute = RequestQuickRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/facilities': typeof FacilitiesRoute
-  '/map': typeof MapRoute
-  '/report': typeof ReportRoute
-  '/requests': typeof RequestsRoute
-  '/triage': typeof TriageRoute
   '/request/$id': typeof RequestIdRoute
   '/request/detailed': typeof RequestDetailedRoute
   '/request/quick': typeof RequestQuickRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/facilities': typeof FacilitiesRoute
-  '/map': typeof MapRoute
-  '/report': typeof ReportRoute
-  '/requests': typeof RequestsRoute
-  '/triage': typeof TriageRoute
   '/request/$id': typeof RequestIdRoute
   '/request/detailed': typeof RequestDetailedRoute
   '/request/quick': typeof RequestQuickRoute
@@ -98,63 +50,20 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/analytics': typeof AnalyticsRoute
-  '/facilities': typeof FacilitiesRoute
-  '/map': typeof MapRoute
-  '/report': typeof ReportRoute
-  '/requests': typeof RequestsRoute
-  '/triage': typeof TriageRoute
   '/request/$id': typeof RequestIdRoute
   '/request/detailed': typeof RequestDetailedRoute
   '/request/quick': typeof RequestQuickRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/analytics'
-    | '/facilities'
-    | '/map'
-    | '/report'
-    | '/requests'
-    | '/triage'
-    | '/request/$id'
-    | '/request/detailed'
-    | '/request/quick'
+  fullPaths: '/' | '/request/$id' | '/request/detailed' | '/request/quick'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/analytics'
-    | '/facilities'
-    | '/map'
-    | '/report'
-    | '/requests'
-    | '/triage'
-    | '/request/$id'
-    | '/request/detailed'
-    | '/request/quick'
-  id:
-    | '__root__'
-    | '/'
-    | '/analytics'
-    | '/facilities'
-    | '/map'
-    | '/report'
-    | '/requests'
-    | '/triage'
-    | '/request/$id'
-    | '/request/detailed'
-    | '/request/quick'
+  to: '/' | '/request/$id' | '/request/detailed' | '/request/quick'
+  id: '__root__' | '/' | '/request/$id' | '/request/detailed' | '/request/quick'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AnalyticsRoute: typeof AnalyticsRoute
-  FacilitiesRoute: typeof FacilitiesRoute
-  MapRoute: typeof MapRoute
-  ReportRoute: typeof ReportRoute
-  RequestsRoute: typeof RequestsRoute
-  TriageRoute: typeof TriageRoute
   RequestIdRoute: typeof RequestIdRoute
   RequestDetailedRoute: typeof RequestDetailedRoute
   RequestQuickRoute: typeof RequestQuickRoute
@@ -167,48 +76,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/analytics': {
-      id: '/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AnalyticsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/facilities': {
-      id: '/facilities'
-      path: '/facilities'
-      fullPath: '/facilities'
-      preLoaderRoute: typeof FacilitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/map': {
-      id: '/map'
-      path: '/map'
-      fullPath: '/map'
-      preLoaderRoute: typeof MapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/report': {
-      id: '/report'
-      path: '/report'
-      fullPath: '/report'
-      preLoaderRoute: typeof ReportRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/requests': {
-      id: '/requests'
-      path: '/requests'
-      fullPath: '/requests'
-      preLoaderRoute: typeof RequestsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/triage': {
-      id: '/triage'
-      path: '/triage'
-      fullPath: '/triage'
-      preLoaderRoute: typeof TriageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/request/$id': {
@@ -237,12 +104,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AnalyticsRoute: AnalyticsRoute,
-  FacilitiesRoute: FacilitiesRoute,
-  MapRoute: MapRoute,
-  ReportRoute: ReportRoute,
-  RequestsRoute: RequestsRoute,
-  TriageRoute: TriageRoute,
   RequestIdRoute: RequestIdRoute,
   RequestDetailedRoute: RequestDetailedRoute,
   RequestQuickRoute: RequestQuickRoute,

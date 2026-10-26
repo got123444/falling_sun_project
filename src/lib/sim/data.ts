@@ -1,4 +1,4 @@
-/** Approximate Delhi-area map anchors for a fictional training simulation. */
+/** Fictional training area "Kestrel Valley". No real locations. */
 import type { Edge, Facility, Hazard, MapNode, Patient, Vitals, World } from "./types";
 
 export function mulberry32(seed: number) {
@@ -15,19 +15,19 @@ export function mulberry32(seed: number) {
 export const SEED = 4242;
 
 export const NODES: MapNode[] = [
-  { id: "N1", label: "Rohini", x: 380, y: 150 },
-  { id: "N2", label: "Kashmere Gate ISBT", x: 570, y: 235 },
-  { id: "N3", label: "Connaught Place", x: 515, y: 310 },
-  { id: "N4", label: "Shahdara Bus Terminal", x: 710, y: 265 },
-  { id: "N5", label: "Dwarka Sec 21", x: 200, y: 430 },
-  { id: "N6", label: "New Delhi Railway Station", x: 540, y: 345 },
-  { id: "N7", label: "ITO", x: 610, y: 365 },
-  { id: "N8", label: "Akshardham", x: 715, y: 410 },
-  { id: "N9", label: "Noida Sec 18", x: 850, y: 465 },
-  { id: "N10", label: "IGI Airport", x: 330, y: 515 },
-  { id: "N11", label: "AIIMS", x: 535, y: 450 },
-  { id: "N12", label: "India Gate", x: 590, y: 395 },
-  { id: "N13", label: "Gurugram", x: 475, y: 570 },
+  { id: "N1", label: "Northgate", x: 120, y: 90 },
+  { id: "N2", label: "Mill Bridge", x: 330, y: 70 },
+  { id: "N3", label: "Ridge Camp", x: 560, y: 110 },
+  { id: "N4", label: "Old Quarry", x: 820, y: 90 },
+  { id: "N5", label: "West Fork", x: 90, y: 300 },
+  { id: "N6", label: "Market Cross", x: 300, y: 280 },
+  { id: "N7", label: "Central Depot", x: 520, y: 320 },
+  { id: "N8", label: "Rail Yard", x: 760, y: 300 },
+  { id: "N9", label: "East Fields", x: 920, y: 330 },
+  { id: "N10", label: "Marsh Lane", x: 150, y: 520 },
+  { id: "N11", label: "School Hill", x: 380, y: 500 },
+  { id: "N12", label: "River Ford", x: 610, y: 540 },
+  { id: "N13", label: "Harbor Road", x: 850, y: 560 },
 ];
 
 const nodeById = new Map(NODES.map((n) => [n.id, n]));
@@ -106,7 +106,7 @@ export function createInitialWorld(): World {
     patients,
     facilities,
     hazards: initialHazards(),
-    log: [{ id: 1, minute: 0, kind: "system", text: "Simulation started with 22 fictional patients on the Delhi reference map" }],
+    log: [{ id: 1, minute: 0, kind: "system", text: "Simulation started with 22 fictional patients in Kestrel Valley training area" }],
     nextLogId: 2,
   };
 }
