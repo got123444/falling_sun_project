@@ -56,7 +56,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="mt-auto space-y-1 border-t border-sidebar-border px-5 py-4 text-xs text-muted-foreground">
-            <p>Kestrel Valley is a fictional training area.</p>
+            <p>Delhi training scenario. Patients and incidents are simulated.</p>
             <p>Triage rules are for demonstration only — not clinical guidance.</p>
           </div>
         </aside>

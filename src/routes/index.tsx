@@ -25,7 +25,7 @@ function Landing() {
     <div className="mx-auto max-w-5xl">
       <section className="grid gap-10 pt-4 lg:grid-cols-[1.2fr_1fr] lg:pt-10">
         <div className="fade-up">
-          <p className="eyebrow">Kestrel Valley · training exercise</p>
+          <p className="eyebrow">Delhi · training exercise</p>
           <h1 className="mt-3 text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
             Emergency assistance,
             <br />
