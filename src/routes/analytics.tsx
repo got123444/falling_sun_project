@@ -47,7 +47,7 @@ function Analytics() {
           <div key={c} className="mb-2 flex items-center gap-3 text-sm">
             <span className="w-20 capitalize">{c}</span>
             <div className="h-3 flex-1 rounded-full bg-muted">
-              <div className={`h-full rounded-full bg-${c}`} style={{ width: `${(cats[c] / max) * 100}%` }} />
+              <div className={`h-full rounded-full ${{ urgent: "bg-urgent", monitor: "bg-monitor", routine: "bg-routine" }[c]}`} style={{ width: `${(cats[c] / max) * 100}%` }} />
             </div>
             <span className="w-6 text-right font-mono">{cats[c]}</span>
           </div>
